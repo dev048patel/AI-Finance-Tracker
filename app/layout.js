@@ -1,14 +1,17 @@
 import { Inter} from "next/font/google";
 import "./globals.css";
 import Header from "../components/header"; // Importing Header component
+import { ClerkProvider } from "@clerk/nextjs";
 const inter = Inter ({subsets: ["latin"]}); // Importing fonts from Google Fonts
 export const metadata = {
   title: "MERN Stack Finance App",
-  description: "Finance Application",
+  description: "A simple finance app built with the MERN stack",
 };
 
 export default function RootLayout({ children }) {
   return (
+    /* Adding ClerkProvider */
+    <ClerkProvider>
     <html lang="en">
       <body
         className={`${inter.className}`}>
@@ -26,5 +29,7 @@ export default function RootLayout({ children }) {
         
       </body>
     </html>
+
+    </ClerkProvider>
   );
 }
